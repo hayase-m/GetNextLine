@@ -6,7 +6,7 @@
 /*   By: hmaruyam <hmaruyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 17:16:08 by hmaruyam          #+#    #+#             */
-/*   Updated: 2025/05/10 19:20:50 by hmaruyam         ###   ########.fr       */
+/*   Updated: 2025/05/10 22:37:02 by hmaruyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 
 static char	*free_and_null(char **ptr)
 {
-	if (ptr && *ptr)
-	{
-		free(*ptr);
-		*ptr = NULL;
-	}
+	free(*ptr);
+	*ptr = NULL;
 	return (NULL);
 }
 
@@ -80,7 +77,7 @@ static char	*process_remaining_buffer(char **line_buf)
 	char	*nl_ptr;
 	char	*line;
 
-	if (!line_buf || !*line_buf)
+	if (!*line_buf)
 		return (NULL);
 	if (**line_buf == '\0')
 		return (free_and_null(line_buf));
