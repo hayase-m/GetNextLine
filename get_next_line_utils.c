@@ -6,7 +6,7 @@
 /*   By: hmaruyam <hmaruyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 12:07:20 by hmaruyam          #+#    #+#             */
-/*   Updated: 2025/04/26 17:44:30 by hmaruyam         ###   ########.fr       */
+/*   Updated: 2025/05/10 16:23:42 by hmaruyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strchr(const char *s, int c)
 	size_t	len;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	len = 0;
 	while (s[len])
 		len++;
@@ -55,6 +57,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	unsigned char		*uc_dst;
 	const unsigned char	*uc_src;
 
+	if (!dst && !src)
+		return (dst);
 	uc_dst = (unsigned char *)dst;
 	uc_src = (const unsigned char *)src;
 	i = 0;
@@ -70,6 +74,8 @@ size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (s[i])
 		i++;
@@ -82,6 +88,8 @@ char	*ft_strdup(const char *s1)
 	size_t	s1_len;
 	size_t	i;
 
+	if (!s1)
+		return (NULL);
 	i = 0;
 	s1_len = ft_strlen(s1);
 	result = malloc((s1_len + 1) * sizeof(char));
